@@ -34,11 +34,19 @@ import styled from 'styled-components';
 import ResumifyButton from 'components/Button';
 import { AuthContext } from 'containers/Providers/AuthProvider';
 
+const NavbarBrandCustom = styled(NavbarBrand)`
+  margin: 0 !important;
+  background: ${p => p.theme.palette.primary};
+  border-radius: 50px;
+  padding: 5px 10px;
+`;
 const NavHeader = styled.h3`
-  color: blue;
-  color: ${p => p.theme.palette.primary};
-  font-family: 'Pacifico' !important;
+  font-weight: bold;
+  font-family: 'Roboto' !important;
   text-transform: capitalize;
+  margin: 0;
+  color: white;
+  font-size: 24px;
 `;
 
 export const Header = props => {
@@ -52,27 +60,24 @@ export const Header = props => {
           id="navbar-main"
         >
           <Container>
-            <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
+            <NavbarBrandCustom className="mr-lg-5" to="/" tag={Link}>
               <NavHeader>Resumify</NavHeader>
-            </NavbarBrand>
-            <button className="navbar-toggler" id="navbar_global">
-              <span className="navbar-toggler-icon bg-primary" />
-            </button>
+            </NavbarBrandCustom>
             <button className="navbar-toggler" id="navbar_global">
               <span />
               <span />
               <span />
             </button>
 
+            
             <UncontrolledCollapse navbar toggler="#navbar_global">
               <div className="navbar-collapse-header">
                 <Row>
                   <Col className="collapse-brand" xs="6">
                     <Link to="/">
-                      <img
-                        alt="..."
-                        src={require('assets/img/brand/argon-react.png')}
-                      />
+                      <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
+                        <NavHeader>Resumify</NavHeader>
+                      </NavbarBrand>
                     </Link>
                   </Col>
                   <Col className="collapse-close" xs="6">
@@ -141,6 +146,7 @@ export const Header = props => {
                         size="sm"
                         tag={Link}
                         to="/signup"
+                        outline
                       >
                         Sign up
                       </ResumifyButton>
