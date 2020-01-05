@@ -63,11 +63,24 @@ export const Header = props => {
             <NavbarBrandCustom className="mr-lg-5" to="/" tag={Link}>
               <NavHeader>Resumify</NavHeader>
             </NavbarBrandCustom>
-            <button className="navbar-toggler" id="navbar_global">
-              <span />
-              <span />
-              <span />
-            </button>
+            <div className="navbar-action">
+              {!authenticated && 
+                <ResumifyButton
+                  className="y-1"
+                  size="sm"
+                  tag={Link}
+                  to="/signup"
+                  outline
+                >
+                  Sign up
+              </ResumifyButton>
+              }
+              <button className="navbar-toggler" id="navbar_global">
+                <span />
+                <span />
+                <span />
+              </button>
+            </div>
 
             
             <UncontrolledCollapse navbar toggler="#navbar_global">
@@ -75,9 +88,9 @@ export const Header = props => {
                 <Row>
                   <Col className="collapse-brand" xs="6">
                     <Link to="/">
-                      <NavbarBrand className="mr-lg-5" to="/" tag={Link}>
+                      <NavbarBrandCustom className="mr-lg-5" to="/" tag={Link}>
                         <NavHeader>Resumify</NavHeader>
-                      </NavbarBrand>
+                      </NavbarBrandCustom>
                     </Link>
                   </Col>
                   <Col className="collapse-close" xs="6">

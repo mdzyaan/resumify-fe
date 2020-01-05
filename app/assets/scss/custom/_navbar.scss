@@ -219,6 +219,11 @@
 
 @include media-breakpoint-down(md) {
     .navbar-light {
+        .navbar-action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .navbar-toggler {
             width: 20px;
             height: 20px;
