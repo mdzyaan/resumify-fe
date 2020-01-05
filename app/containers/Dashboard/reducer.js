@@ -1,0 +1,38 @@
+/*
+ *
+ * Dashboard reducer
+ *
+ */
+import produce from 'immer';
+import { DEFAULT_ACTION } from './constants';
+
+export const initialState = {
+  loading: false,
+  error: false,
+  data: {},
+};
+
+/* eslint-disable default-case, no-param-reassign */
+const dashboardReducer = (state = initialState, action) => {
+  return produce(state, draft => {
+    switch (action.type) {
+      case DEFAULT_ACTION.START:
+        draft.loading = true;
+        draft.error = false;
+        break;
+
+      case DEFAULT_ACTION.SUCCESS:
+        draft.loading = false;
+        draft.error = false;
+        draft.data = action.payload.data;
+        break;
+
+      case DEFAULT_ACTION.ERROR:
+        draft.loading = false;
+        draft.error = action.error;
+        break;
+    }
+  });
+};
+
+export default dashboardReducer;
